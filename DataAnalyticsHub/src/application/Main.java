@@ -219,6 +219,7 @@ public class Main extends Application {
 
 	private void register(String username, String password, String firstName, String lastName) throws IOException {
 		// Implement the registration logic here
+		//registering users
 		try {
 			String query = "INSERT INTO users (username, password, first_name, last_name) VALUES (?, ?, ?, ?)";
 			PreparedStatement statement = connection.prepareStatement(query);
