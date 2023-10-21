@@ -27,7 +27,7 @@
 
          <Button text="Login" onAction="#loginUser" style="-fx-background-color: #FAF9F6;" />
 
-         <Button text="Register" style="-fx-background-color: #FAF9F6;" />
+         <Button text="Register" onAction="#loginUser" style="-fx-background-color: #FAF9F6;" />
       </VBox>
    </center>
 </BorderPane>
