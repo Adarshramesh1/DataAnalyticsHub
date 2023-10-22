@@ -29,10 +29,12 @@ public class DashBoardController {
 		Button deletePostButton = new Button("Delete Post");
         deletePostButton.setOnAction(e -> new DeletePostController().showDeleteConfirmation(connection,primaryStage,fullName,username));
 		Button editProfileButton = new Button("Edit Profile");
-		editProfileButton.setOnAction(e -> new Main().showEditProfileScreen(connection, primaryStage,fullName,username));
+		editProfileButton.setOnAction(e -> new EditProfileController().showEditProfileScreen(connection, primaryStage,fullName,username));
+		Button addPostsButton = new Button("Add a Post");
+		addPostsButton.setOnAction(e -> new addPostsController().showAddPostScreen(connection, primaryStage,fullName,username));
 
 		dashboardLayout.getChildren().addAll(welcomeLabel, retrieveTopPostsButton, retrievePostButton,deletePostButton,
-				editProfileButton);
+				editProfileButton,addPostsButton);
 
 		Scene dashboardScene = new Scene(dashboardLayout, 300, 250);
 		primaryStage.setScene(dashboardScene);
