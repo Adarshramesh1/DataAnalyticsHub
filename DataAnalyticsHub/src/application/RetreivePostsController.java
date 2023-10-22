@@ -53,11 +53,7 @@ public class RetreivePostsController {
 
 	public void retrievePost(String postId) {
 		
-		// Implement the logic to retrieve the post from the database based on the
-		// entered ID
-		// Query the database using the postId and populate the postTextArea with the
-		// retrieved post data
-		// Display an error message if the post is not found
+		
 		try (Connection connection = DriverManager.getConnection(DB_URL);
 				PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM posts WHERE id = ?")) {
 

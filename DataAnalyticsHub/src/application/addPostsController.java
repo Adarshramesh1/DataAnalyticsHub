@@ -57,7 +57,7 @@ public class addPostsController {
 	}
 	
 	private void addSocialPost(Connection connection, String id, String content, String author, String likes, String shares, String dateTime, String fullName, String username) {
-	    // Implement validation here (e.g., checking if likes and shares are numeric, ensuring ID uniqueness, etc.)
+	    
 	    try {
 	        // Convert likes and shares to integers
 	        int likesInt = Integer.parseInt(likes);
