@@ -56,7 +56,7 @@ public class LoginController {
 				loginButton, registerButton);
 		//Parent root=FXMLLoader.load(getClass().getResource("LoginView.fxml"));
 
-		Scene loginScene = new Scene(loginLayout, 300, 250);
+		Scene loginScene = new Scene(loginLayout, 300, 400);
 		//Scene loginScene=new Scene(root);
 		primaryStage.setScene(loginScene);
 		primaryStage.show();

@@ -84,7 +84,7 @@ public class DashBoardController {
 					editProfileButton, addPostsButton, exportPostButton,VipUpgrage,dataVisualizationButton,bulkImportButton, logoutButton);
 		}
 
-		Scene dashboardScene = new Scene(dashboardLayout, 300, 250);
+		Scene dashboardScene = new Scene(dashboardLayout, 400, 545);
 		primaryStage.setScene(dashboardScene);
 	}
 	

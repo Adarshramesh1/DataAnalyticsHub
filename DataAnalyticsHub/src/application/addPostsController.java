@@ -65,7 +65,7 @@ public class addPostsController {
 
 	        // Perform additional validations as needed
 
-	        // Add the post to the database (Replace with your actual database insertion logic)
+	        // Add the post to the database 
 	        insertPost(connection,id, content, author, likesInt, sharesInt, dateTime,fullName,username);
 
 	        

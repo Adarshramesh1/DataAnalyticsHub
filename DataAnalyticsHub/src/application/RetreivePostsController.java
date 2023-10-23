@@ -74,14 +74,12 @@ public class RetreivePostsController {
 				postTextArea.clear();
 				postTextArea.setText(retrievedPostText);
 			} else {
-				new Main().showAlert(primaryStage, Alert.AlertType.ERROR, "Login Failed", "post id not found.");
+				new Main().showAlert(primaryStage, Alert.AlertType.ERROR, "Access Failed", "post id not found.");
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 			postTextArea.setText("Error retrieving post");
 		}
-		// Example code to set the retrieved post in the TextArea (replace with your
-		// actual database query):
 	}
 
 }

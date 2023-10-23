@@ -27,7 +27,7 @@ public class Main extends Application {
 
 		new DataBase().createUserDatabase();
 		new DataBase().createPostsDatabase();
-		new DataBase().loadPostsDatabase();
+		
 
 		new LoginController().showLoginScreen(primaryStage);
 	}

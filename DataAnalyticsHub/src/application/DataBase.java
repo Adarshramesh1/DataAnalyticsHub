@@ -42,49 +42,4 @@ public class DataBase {
 		}
 	}
 	
-	public void loadPostsDatabase() throws FileNotFoundException, IOException, SQLException {
-
-		String csvFilePath = "C:\\Users\\adars\\OneDrive\\Desktop\\ADVANced programming\\posts.csv"; // Replace with
-																										// your CSV file
-																										// path
-		connection = DriverManager.getConnection(DB_URL);
-		try (BufferedReader reader = new BufferedReader(new FileReader(csvFilePath))) {
-			String line;
-			boolean isFirstRow = true;
-			while ((line = reader.readLine()) != null) {
-				if (isFirstRow) {
-					isFirstRow = false;
-					continue; // Skip the header row
-				}
-
-				String[] parts = line.split(",");
-				int id = Integer.parseInt(parts[0]);
-				String content = parts[1];
-				String author = parts[2];
-				int likes = Integer.parseInt(parts[3]);
-				int shares = Integer.parseInt(parts[4]);
-				String dateTime = parts[5];
-				String insertQuery = "INSERT OR REPLACE INTO posts (id, content, author, likes, shares, dateTime) VALUES (?, ?, ?, ?, ?, ?)";
-
-				PreparedStatement preparedStatement;
-				try {
-					preparedStatement = connection.prepareStatement(insertQuery);
-					preparedStatement.setInt(1, id);
-					preparedStatement.setString(2, content);
-					preparedStatement.setString(3, author);
-					preparedStatement.setInt(4, likes);
-					preparedStatement.setInt(5, shares);
-					preparedStatement.setString(6, dateTime);
-
-					// Execute the INSERT statement
-					preparedStatement.executeUpdate();
-
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
-
-			}
-		}
-
-	}
 }

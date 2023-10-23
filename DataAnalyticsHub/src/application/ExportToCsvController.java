@@ -12,6 +12,8 @@ import java.util.Optional;
 import javafx.scene.control.TextInputDialog;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+//Prompts the user to input a Post ID, retrieves post details from the database,
+//and exports them to a CSV file.
 
 public class ExportToCsvController {
 	public void exportToCSV(Connection connection, Stage primaryStage) {

@@ -10,6 +10,7 @@ import java.util.List;
 
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
@@ -21,7 +22,9 @@ public class TopPostsController {
 	public Stage primaryStage;
 	private static final String DB_URL = "jdbc:sqlite:social_media_analytics.db";
 	private ListView<String> topPostsListView;
-	public void showRetrieveTopLikedPostsScreen(Connection connection, Stage primaryStage, String fullName, String username) {
+
+	public void showRetrieveTopLikedPostsScreen(Connection connection, Stage primaryStage, String fullName,
+			String username) {
 		this.primaryStage = primaryStage;
 		// Create a new JavaFX scene for retrieving top posts
 		topPostsListView = new ListView<>();
@@ -41,7 +44,8 @@ public class TopPostsController {
 
 		// Add a back button to return to the dashboard
 		Button backButton = new Button("Back");
-		backButton.setOnAction(e -> new DashBoardController().showDashboard(connection, primaryStage, fullName, username));
+		backButton.setOnAction(
+				e -> new DashBoardController().showDashboard(connection, primaryStage, fullName, username));
 
 		retrieveTopPostsLayout.getChildren().addAll(retrieveTopPostsLabel, numberOfPostsField, retrieveButton,
 				topPostsListView, backButton);
@@ -52,12 +56,10 @@ public class TopPostsController {
 
 	public void retrieveTopPosts(int numberOfPosts) {
 
-		// Assuming you have a list of top posts retrieved from the database
 		List<String> topPosts = retrieveTopPostsFromDatabase(numberOfPosts);
 
-		
-		//clearing previous values before displaying new values
-		 topPostsListView.getItems().clear();
+		// clearing previous values before displaying new values
+		topPostsListView.getItems().clear();
 		// Populate the ListView with the retrieved top posts
 		topPostsListView.getItems().addAll(topPosts);
 	}
@@ -72,21 +74,26 @@ public class TopPostsController {
 			preparedStatement.setInt(1, numberOfPosts);
 			ResultSet resultSet = preparedStatement.executeQuery();
 			int count = 1;
-			while (resultSet.next()) {
+			if (resultSet.next()) {
 
-				int id = resultSet.getInt("id");
-				String content = resultSet.getString("content");
-				String author = resultSet.getString("author");
-				int likes = resultSet.getInt("likes");
-				int shares = resultSet.getInt("shares");
-				String dateTime = resultSet.getString("dateTime");
+				while (resultSet.next()) {
 
-				// Create a formatted string for each top post
-				String topPost = "ID: " + id + "\nContent: " + content + "\nAuthor: " + author + "\nLikes: " + likes
-						+ "\nShares: " + shares + "\nDateTime: " + dateTime;
-				topPosts.add("top  " + Integer.toString(count) + "  post");
-				topPosts.add(topPost);
-				count++;
+					int id = resultSet.getInt("id");
+					String content = resultSet.getString("content");
+					String author = resultSet.getString("author");
+					int likes = resultSet.getInt("likes");
+					int shares = resultSet.getInt("shares");
+					String dateTime = resultSet.getString("dateTime");
+
+					// Create a formatted string for each top post
+					String topPost = "ID: " + id + "\nContent: " + content + "\nAuthor: " + author + "\nLikes: " + likes
+							+ "\nShares: " + shares + "\nDateTime: " + dateTime;
+					topPosts.add("top  " + Integer.toString(count) + "  post");
+					topPosts.add(topPost);
+					count++;
+				}
+			} else {
+				new Main().showAlert(primaryStage, Alert.AlertType.ERROR, "Access Failed", "posts not found.");
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

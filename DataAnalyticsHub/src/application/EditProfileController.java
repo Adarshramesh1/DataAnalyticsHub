@@ -55,7 +55,7 @@ public class EditProfileController {
 				PasswordLabel, passwordField, FirstnameLabel, firstNameField, LastnameLabel, lastNameField, saveButton,
 				backButton);
 
-		Scene editProfileScene = new Scene(editProfileLayout, 400, 300);
+		Scene editProfileScene = new Scene(editProfileLayout, 400, 600);
 		primaryStage.setScene(editProfileScene);
 	}
 

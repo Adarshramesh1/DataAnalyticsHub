@@ -77,7 +77,6 @@ public class DeletePostController {
 	    private String fetchPostDetails(String postId) {
 	        String postDetails = null;
 	        
-	        // Connect to the database (You should replace this with your actual database connection logic)
 	        try (Connection connection = DriverManager.getConnection(DB_URL);
 	             PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM posts WHERE id = ?")) {
 	            preparedStatement.setString(1, postId);
