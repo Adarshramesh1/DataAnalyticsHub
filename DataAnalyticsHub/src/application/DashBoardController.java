@@ -66,7 +66,7 @@ public class DashBoardController {
 			}
         });
 		exportPostButton.setOnAction(e -> new ExportToCsvController().exportToCSV(connection,primaryStage));
-		Button VipUpgrage = new Button("uppgrade to Vip user");
+		Button VipUpgrage = new Button("Upgrade to VIP user");
 		VipUpgrage.setOnAction(e -> {
 			try {
 				new VipUpgradeController().handleVIPUpgrade(primaryStage, connection,username);

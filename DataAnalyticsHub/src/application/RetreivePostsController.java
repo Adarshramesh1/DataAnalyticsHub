@@ -25,8 +25,7 @@ public class RetreivePostsController {
 		this.primaryStage = primaryStage;
 		// Create a new JavaFX scene for post retrieval
 		VBox retrievePostLayout = new VBox(10);
-		retrievePostLayout.setStyle("-fx-background-color: #b0e0e6;");
-		retrievePostLayout.setPadding(new Insets(20, 20, 20, 20));
+   		retrievePostLayout.setPadding(new Insets(20, 20, 20, 20));
 
 		Label retrievePostLabel = new Label("Retrieve Post by ID:");
 		retrievePostLabel.setStyle("-fx-font-size: 18px; -fx-font-weight: bold;");
