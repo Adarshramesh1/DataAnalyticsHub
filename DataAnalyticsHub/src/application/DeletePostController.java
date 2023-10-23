@@ -61,7 +61,6 @@ public class DeletePostController {
 	                    try {
 							deletePost(connection,primaryStage,postId,fullName,username);
 						} catch (IOException e) {
-							// TODO Auto-generated catch block
 							e.printStackTrace();
 						}
 	                    confirmationStage.close();

@@ -80,7 +80,6 @@ public class DataBase {
 					preparedStatement.executeUpdate();
 
 				} catch (SQLException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 

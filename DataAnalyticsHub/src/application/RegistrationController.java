@@ -50,10 +50,8 @@ public class RegistrationController {
 				register(usernameField.getText(), passwordField.getText(),
 						firstNameField.getText(), lastNameField.getText());
 			} catch (IOException e2) {
-				// TODO Auto-generated catch block
 				e2.printStackTrace();
 			} catch (SQLException e1) {
-				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
 		});
@@ -63,7 +61,7 @@ public class RegistrationController {
 			try {
 				new LoginController().showLoginScreen(primaryStage);
 			} catch (IOException e1) {
-				// TODO Auto-generated catch block
+
 				e1.printStackTrace();
 			}
 		});
